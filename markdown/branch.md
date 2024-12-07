@@ -27,19 +27,33 @@ gh pr create                          # プルリクを作ってくれます (�
 
 ### パターン2 : issue は使わない pr だけ使う
 
+ローカルリポジトリで任意の名前をブランチ名にするやり方です。こちらの方が本来の Git 的であり GitHub への依存が少ないです。
+
 ```
 git checkout -b foo remotes/origin/main  # 作業ブランチを foo とします
 git branch                               # foo になっていることを確認します
-
-# そのブランチに対応する作業をします
-echo foo > foo.txt
-git add foo.txt
-git commit -m foo-wip
-
-# 変更を反映します origin (プッシュ先) と foo (ローカルブランチ) を指定する必要があります
-git branch origin foo
-
-# これだと不足のようです
-git push
+code .                                   # そのブランチに対応する作業をします
+git push origin foo                      # origin (プッシュ先) と foo (ローカルブランチ) を指定する必要があります
 ```
+
+注意しなければならないのは `git push origin foo` は結構大事なコマンドだということです。
+
+```
+$ git push origin foo
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 364 bytes | 364.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/ririumu/isu-1733559044
+   a2baf19..01c0f54  foo -> foo
+```
+
+`git push origin foo` によって確実に `origin/foo` に届けたいです。
+vscode で下手に push してしまうと `foo` の成果物が `origin/main` に行ってしまうので事故ります。
+言い換えると `origin/foo` に push すべきものが `origin/main` に push されるという悲劇が発生します。
+悲劇をを防止するには main push を禁止するよう github を設定するべきと言えます。
+
 
