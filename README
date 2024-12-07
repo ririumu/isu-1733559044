@@ -1,2 +1,10 @@
 Git と向き合うだけで終わってしまいました。
 
+gh issue create --title "feature $(date +%s) cleanup unuse files"
+gh issue develop 27
+git checkout 27-feature-1733596488-cleanup-unuse-files
+git branch
+code .
+gh pr create
+
+結局、これでよかったです。
