@@ -35,7 +35,7 @@ ID  TITLE
   remotes/origin/5-feature-1733561849-add-search-functionality
 ```
 
-## メリット
+## 利点
 
 このワークフローの嬉しさは以下のとおりです。
 
