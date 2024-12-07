@@ -7,6 +7,7 @@
 以下は issue を作って、それからその issue に紐づく branch を作る場合の流れです。
 
 ```
+git pull                              # おまじない的にやっていますが意味はないかもしれません
 gh issue create --title "improve xyz" # イシューを作ってくれます (ブラウザ操作でも良いです)
 gh issue develop 42                   # ブランチを作ってくれます (ブラウザ操作でも良いです)
 git pull                              # おまじない的にやっていますが意味はないかもしれません
