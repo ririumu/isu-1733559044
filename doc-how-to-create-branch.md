@@ -75,6 +75,7 @@ https://github.com/ririumu/isu-1733559044/pull/7 として
 
 作業のログが https://github.com/ririumu/isu-1733559044/issues/6 で確認できます。
 
-このように `feature $(date +%s) topic description` のイシュー作成から始めるとあとで作業を追跡しやすいのが、ひとつの嬉しさとなります。
+`feature $(date +%s) topic description workflow` に従うことで、
+このように、あとで作業の追跡もしやすくなります。
 
-なお `isu-1733559044` のコミットログを眺めれば分かるとおり、更新は直接 `main` に対して行なっています。 `main` への直接 push を許すかどうかは、チームの方針によります。
+なお `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿は main で行なっています。 main への直接 push を許すかどうかはチームの方針によりますが、今回は自明に良いことはレビューが必要ない、またコミットログは dirty であっても構わないと、チーム（＝私）が考えたことによって main への直接 push は allow となっています。
