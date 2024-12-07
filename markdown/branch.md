@@ -24,3 +24,19 @@ gh pr create                          # プルリクを作ってくれます (�
 ```
 
 なお vscode ではプルリクのマージまで一気通貫にやってくれる印象だったので `code .` 以降は不要である説があります。
+
+### パターン2 : issue は使わない pr だけ使う
+
+```
+git checkout -b foo remotes/origin/main  # 作業ブランチを foo とします
+git branch                               # foo になっていることを確認します
+
+# そのブランチに対応する作業をします
+echo foo > foo.txt
+git add foo.txt
+git commit -m foo
+
+# 変更を反映します origin (プッシュ先) と foo (ローカルブランチ) を指定することがベターです
+git branch origin foo
+```
+
