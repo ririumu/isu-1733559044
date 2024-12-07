@@ -4,7 +4,7 @@
 
 その手順を記述します。
 
-## 手順
+### 手順
 
 1. イシューを作成  
 まず改修単位に応じたイシューを作成します。  
@@ -35,7 +35,7 @@ ID  TITLE
   remotes/origin/5-feature-1733561849-add-search-functionality
 ```
 
-## 利点
+### 利点
 
 このワークフローの嬉しさは以下のとおりです。
 
@@ -43,13 +43,21 @@ ID  TITLE
 - タイムスタンプ: ブランチ名の衝突を回避。
 - Git コマンド中心: CLI 上で完結。
 
-## 備考
+### 備考
 
 本ドキュメントの手順では  `gh` コマンドを使用しましたが、これはブラウザで全ての操作を行うことができます。
 
-その際は `echo` コマンドで unixtime を取得することが役立つかもしれません。
+その際は以下のコマンドなどで unixtime を取得します。
 
 ```
 $ echo feature $(date +%s) topic description
 feature 1733564884 topic description
 ```
+
+### 事例
+
+https://github.com/ririumu/isu-1733559044 の本ドキュメントの初稿は 
+`gh issue develop 6` で切ったブランチで作業したものであり、
+その成果物は、
+https://github.com/ririumu/isu-1733559044/pull/7 として
+最終的に `main` へとマージされました。
