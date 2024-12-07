@@ -60,7 +60,9 @@ feature 1733564884 topic description
 
 ### 事例
 
-本ドキュメント https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md の初稿は、以下コマンドで作業開始しました。
+本ドキュメント https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md の初稿は、実際に本手順で作成しました。
+
+作業開始のコマンドは以下でした。
 
 ```
 gh issue create --title "feature $(date +%s) write doc"
@@ -74,3 +76,5 @@ https://github.com/ririumu/isu-1733559044/pull/7 として
 作業のログが https://github.com/ririumu/isu-1733559044/issues/6 で確認できます。
 
 このように `feature $(date +%s) topic description` のイシュー作成から始めるとあとで作業を追跡しやすいのが、ひとつの嬉しさとなります。
+
+なお `isu-1733559044` のコミットログを眺めれば分かるとおり、更新は直接 `main` に対して行なっています。 `main` への直接 push を許すかどうかは、チームの方針によります。
