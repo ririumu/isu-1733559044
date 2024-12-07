@@ -1,8 +1,12 @@
 ## feature $(date +%s) topic description workflow
 
-「ブランチは改修単位」を実現するワークフローとして、イシュー名を `feature $(date +%s) topic description` にすることがちょうど良さそうです。
+「ブランチは改修単位」を実現するための tips として、
 
-その手順を記述します。
+* イシュー名を `feature $(date +%s) topic description` とする
+
+のが良さそうでした。
+
+個人的に使おうと思うので、備忘録としてその手順を記述します。
 
 ### 手順
 
@@ -56,17 +60,17 @@ feature 1733564884 topic description
 
 ### 事例
 
-本ドキュメント https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md の初稿は、
+本ドキュメント https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md の初稿は、以下コマンドで作業開始しました。
 
 ```
 gh issue create --title "feature $(date +%s) write doc"
 gh issue develop 6
 ```
 
-で作業が開始されました。
-
 その成果物は、
 https://github.com/ririumu/isu-1733559044/pull/7 として
-最終的に `main` へとマージされました。
+最終的に `main` へマージされました。
 
 作業のログが https://github.com/ririumu/isu-1733559044/issues/6 で確認できます。
+
+このように `feature $(date +%s) topic description` のイシュー作成から始めるとあとで作業を追跡しやすいのが、ひとつの嬉しさとなります。
