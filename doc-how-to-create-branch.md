@@ -56,8 +56,17 @@ feature 1733564884 topic description
 
 ### 事例
 
-https://github.com/ririumu/isu-1733559044 の本ドキュメントの初稿は 
-`gh issue develop 6` で切ったブランチで作業したものであり、
+本ドキュメント https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md の初稿は、
+
+```
+gh issue create --title "feature $(date +%s) write doc"
+gh issue develop 6
+```
+
+で作業が開始されました。
+
 その成果物は、
 https://github.com/ririumu/isu-1733559044/pull/7 として
 最終的に `main` へとマージされました。
+
+作業のログが https://github.com/ririumu/isu-1733559044/issues/6 で確認できます。
