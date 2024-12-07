@@ -1,10 +1,10 @@
-## `feature $(date +%s) topic description workflow` について
+## `feature $(date +%s) workflow` について
 
 「ブランチは改修単位」を実現するコツを求めていて GitHub を練習していたところ
-イシュー名を `feature $(date +%s) topic description` とする
+イシュー名を `feature $(date +%s) description` とする
 のが良さそうでした。
 
-これを `feature $(date +%s) topic description workflow` と呼ぶことにします。
+これを `feature $(date +%s) workflow` と呼ぶことにします。
 
 個人的に使おうと思うので、備忘録としてドキュメントを作成します。
 
@@ -92,10 +92,9 @@ gh issue develop 6
 
 とチーム（＝私）が考えたことによって、 main push を allow しています。
 
-一方で feature branch を消さないでおいて引き続き作業して main merge させることにも一定のメリットがあります。
-
-例えば `git log --pretty=oneline | grep 1733563997` では main push のコミットを特定することができないので、若干追跡性が落ちます。
-feature branch で更新を行うことは main のコミットログに関心あるチームメイトにとって、メリットがあります。
+一方で main push を禁止し feature branch 作業を原則とすることも `feature $(date +%s) workflow` にとって一定のメリットがあります。
+例えば `git log --pretty=oneline | grep 1733563997` では main push のコミットを特定することができないので、若干追跡性が落ちますが、
+feature branch 作業を原則とすれば、その追跡性は維持されます。
 
 ```
 $ git log --pretty=oneline | grep 1733563997
@@ -103,10 +102,7 @@ acfc0fc70e64c1db119baae15b986d6caf35bc52 Merge pull request #9 from ririumu/6-fe
 6c6b4bba74c86475eefb9abfcca8beaa49307dc0 Merge pull request #7 from ririumu/6-feature-1733563997-write-doc
 ```
 
-個人としてのスピードを犠牲にしてでも、チームとしての生産性を向上させたい場合は、おそらくそうするべきです。
-この変更も feature branch で作業をしています。ただやっぱり、手数が多くなってしまうわけなので、どちらがいいのでしょうね・・・。
-
-まとめると以下の3択です。
+このため以下の3択が考えられます。
 
 1. セルフマージが多い場合は main push をしていいものとする
 2. main の品質のため main push は disallow であり doc update や fix typo レベルであっても feature branch で作業するものとする
