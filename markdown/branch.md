@@ -54,6 +54,7 @@ To https://github.com/ririumu/isu-1733559044
 `git push origin foo` によって確実に `origin/foo` に届けたいです。
 vscode で下手に push してしまうと `foo` の成果物が `origin/main` に行ってしまうので事故ります。
 言い換えると `origin/foo` に push すべきものが `origin/main` に push されるという悲劇が発生します。
+
+<img width="909" alt="image" src="https://github.com/user-attachments/assets/30469d8b-ca92-4d4e-a25f-5c8bfb678c93">
+
 悲劇をを防止するには main push を禁止するよう github を設定するべきと言えます。
-
-
