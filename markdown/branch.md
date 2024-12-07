@@ -1,21 +1,16 @@
 ## ブランチとの向き合い
 
-### はじめに
+なんか色々言いたいことあるけど結局これがすべてなあ。
 
-git はそもそもブラウザは関係ないツールでした。
-そもそも git は linux のために linus が作ったもので github とは関係がなかったのです、歴史上。
-他方で github のブラウザ操作を基本としそれで完結させようとするツールです。
+```
+*   009cd09 - (HEAD -> main, origin/main, origin/HEAD) Merge pull request #25 from ririumu/23-feature-1733593706-remove-unusable-method-from-doc (9 minutes ago) <ririumu>
+|\
+| * 4bd72b0 - doc update (9 minutes ago) <ririumu>
+|/
+*
+```
 
-そこで本稿では「そもそも Git や GitHub にどう向き合うべきか」という観点も提供できれば、嬉しいです。
-
-その辺りも踏まえて意識して、しかしながらできるだけ簡単に、しかし私のお気持ちも含めて本稿を書いています。
-ブランチ操作を伴う開発を行うときの、CLI コマンドのサンプルを、できるだけわかりやすく書こうとしています。
-
-この記事が何かのヒントになると嬉しいです。
-
-### パターン1 : issue を使う
-
-以下は issue を作って、それからその issue に紐づく branch を作る場合の流れです。
+つまり issue を作って、それからその issue に紐づく branch を作り、それをチェックアウトするという流れは、無難だし、イケています。
 
 ```
 git pull                              # おまじない的にやっていますが意味はないかもしれません
@@ -34,40 +29,18 @@ git push                              # 作業結果をリモートリポジト�
 gh pr create                          # プルリクを作ってくれます (ブラウザ操作でも良いです)
 ```
 
-なお vscode ではプルリクのマージまで一気通貫にやってくれる印象だったので `code .` 以降は不要である説があります。
+vscode ではプルリクのマージまで一気通貫にやってくれる印象だったので `code .` 以降は不要である説があります。
 
-### パターン2 : issue は使わない pr だけ使う
-
-ローカルリポジトリで任意の名前をブランチ名にするやり方です。こちらの方が本来の Git 的であり GitHub への依存が少ないです。
-元々 git は linus が linux を作るために作ったツールで、当時はメーリングリストでのやり取りが主だったと聞きます。
-
-一人で ISUCON するときは `count` という雑なコミットメッセージしますよね。
-でチーム開発だからといって教条的に pr とか review すると明らかに速度が落ちます。
-
-じゃあこういうのもありだとそう思っていたのですが。
-
-```
-git checkout -b foo remotes/origin/main  # 作業ブランチを foo とします
-git branch                               # foo になっていることを確認します
-code .                                   # そのブランチに対応する作業をします
-```
-
-https://github.com/ririumu/isu-1733559044/issues/23 の通り私には荷が重かったようです。
+色々試してみましたが、素直に github のやり方に従うのが良かったです。 git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) ですが、しかし普通であるが故に、まだかなりマシでした。
 
 ### 悲劇の未然防止 : main push の禁止
 
-結局、ミスをするのは99.9%人間で、特に、体調が良くないなど、疲れていると人間はミスをします。
-そして `main` は常に一定品質を保たれていることが期待されます。
-だからやっぱり main push は禁止であるべきなのでしょう。
-そう思うようになりました。
+`main` は常に一定品質を保たれていることが期待されており、おそらく main push は禁止するべきです
 
 <img width="909" alt="image" src="https://github.com/user-attachments/assets/30469d8b-ca92-4d4e-a25f-5c8bfb678c93">
 
 ### 結論
 
-素直に github のやり方に従うのが良いです。 git だけでなんとかするのしんどいです（少なくとも自分は）。
-これならまだ [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) は
-普通であるが故に、マシでした。
+素直に github のやり方に従うのが良いです。 main push は禁止で設定するのが良いです。
 
-以上
-
+[feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) は悪くなかったです。たとえ issue が [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) 混沌としていても、それが命名規則に従っているという理由により、まともな issue であるということがハッキリします。
