@@ -1,12 +1,12 @@
 ## ブランチ
 
-作業単位に対するブランチの練習を gh コマンドでしました。
+ブランチ練習を gh コマンドでしました。
 
 
 ### 手順
 
-せっかく cli を使うのでイシュー名に `feature $(date +%s)` を含めてみます。
-そうすることを feature dates workflow と呼んでみます。
+イシュー名に `feature $(date +%s)` を含めます。
+そうすることを feature dates workflow と呼びます（仰々しい）。
 
 1. イシューを作成  
 まずイシューを作成します。  
@@ -40,44 +40,33 @@ ID  TITLE
 issue と branch が github 上に作成されました。
 
 
-### 利点
+### 利点と事例
 
-このワークフローの嬉しさは以下のとおりでした。
+本ドキュメント https://github.com/ririumu/isu-1733559044/edit/main/about-gh-branch.md の初稿は
+実際の feature dates workflow の適用例です。
 
-- 命名規則（イシュー番号 + タスク名）が直感的な理解を促進する。
-- タイムスタンプ: UNIXタイムスタンプに識別子としての多面的な利用性がある。
-
-これはブラウザで全ての操作を行うことができるので、作業は CLI メインで作業してもよいし GUI (ブラウザ) メインで作業してもよいです。
-
-
-### 事例
-
-本ドキュメント [https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md](https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md) の初稿は、実際に本手順で作成しました。
-作業開始のコマンドは以下でした。
+まず、以下のコマンドで開始しました。
 
 ```
 gh issue create --title "feature $(date +%s) write doc"
 gh issue develop 6
 ```
 
-作業の成果物は [https://github.com/ririumu/isu-1733559044/pull/7](https://github.com/ririumu/isu-1733559044/pull/7) として main にマージされました。
-作業のログは [https://github.com/ririumu/isu-1733559044/issues/6](https://github.com/ririumu/isu-1733559044/issues/6) から確認できます。
+作業の成果は [https://github.com/ririumu/isu-1733559044/pull/7](https://github.com/ririumu/isu-1733559044/pull/7) として main にマージされました。
+作業のログは [https://github.com/ririumu/isu-1733559044/issues/6](https://github.com/ririumu/isu-1733559044/issues/6) より確認できます。
 
-これにより、作業に一意の名前 `feature 1733563997` がつきました。
-unixtime `1733563997` を識別子として定めて `git log --pretty=oneline | grep 1733563997` するなどで追跡してみました。
+次に、作業に一意の名前 `feature 1733563997` があることの嬉しさを試してみました。ここでは `1733563997` が識別子になります。
+例えば `git log --pretty=oneline | grep 1733563997` するなどで追跡してみました。
 
-以上の通り feature dates workflow は幾らかのメリットがありました、ですが、マイナーな workflow はそれだけで良くないです。
+悪くはない感じでした。ただ結局 `$(date +%s)` のうれしさについてはあってもなくてもというところで、キラーな工夫であるかどうかは場合により、要するにどちらでも良かったです。
+
 
 ### 結論
 
-gh で新しくブランチを切る際に issue を経由する場合はこうすると良いです。
+https://github.com/ririumu/isu-1733559044/issues/6 を通じて gh コマンドの使い方を確認しました。
 
 ```
 gh issue create --title "feature add metrics viewer"
 gh issue develop 42
 ```
 
-普通ですね。
-よって結局 https://github.com/ririumu/isu-1733559044/issues/6 はコマンド練習の記録なのでした。
-
-おしまい
