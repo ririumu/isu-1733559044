@@ -64,7 +64,26 @@ To https://github.com/ririumu/isu-1733559044
 git pull origin foo
 ```
 
-を使うべきです。
+を使うべきです。これもかなり大事で、
+
+```
+git pull origin foo
+code .
+gh pr create
+```
+
+というコマンドの打ち方の流れがあります。
+
+```
+$ gh pr create
+a pull request for branch "foo" into branch "main" already exists:
+https://github.com/ririumu/isu-1733559044/pull/14
+```
+
+「もうあるよそれ」と言われても URL を教えてくれるのでありがたいです。
+
+
+### 悲劇を防ぐための main push の禁止
 
 疲れていると人間はミスをします。
 
