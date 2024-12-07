@@ -1,19 +1,20 @@
 ## ブランチ
 
-作業単位に対するブランチの練習をしました。
+作業単位に対するブランチの練習を gh コマンドでしました。
 
 
 ### 手順
 
-イシュー名を `feature $(date +%s) description` とすることを feature dates workflow とします。
+せっかく cli を使うのでイシュー名に `feature $(date +%s)` を含めてみます。
+そうすることを feature dates workflow と呼んでみます。
 
 1. イシューを作成  
-作業単位に応じたイシューを作成します。  
+まずイシューを作成します。  
 `gh issue create --title "feature $(date +%s) description"`  
 例: `gh issue create --title "feature $(date +%s) improve search"`
 
 2. イシュー番号を確認  
-次に作成したイシューの番号を取得します。  
+つぎにイシューの番号を取得します。  
 `gh issue list --state all`  
 例:  
 ```
@@ -35,6 +36,8 @@ ID  TITLE
 * main
   remotes/origin/5-feature-1733561849-improve-search
 ```
+
+issue と branch が github 上に作成されました。
 
 
 ### 利点
