@@ -8,6 +8,7 @@
 
 個人的に使おうと思うので、備忘録としてドキュメントを作成します。
 
+
 ### 手順
 
 1. イシューを作成  
@@ -39,6 +40,7 @@ ID  TITLE
   remotes/origin/5-feature-1733561849-add-search-functionality
 ```
 
+
 ### 利点
 
 このワークフローの嬉しさは以下のとおりです。
@@ -46,6 +48,7 @@ ID  TITLE
 - 命名規則: イシュー番号 + タスク名で直感的に分かる構造を維持。
 - タイムスタンプ: ブランチ名の衝突を回避。
 - Git コマンド中心: CLI 上で完結。
+
 
 ### 備考
 
@@ -75,11 +78,14 @@ gh issue develop 6
 本稿作成にあたり `feature $(date +%s) topic description workflow` に従うことで、その作業に一意の名前 `feature 1733563997` がつきました。
 かつこの時 unixtime `1733563997` がイミュータブルな識別子として定まったので `git log --pretty=oneline | grep 1733563997` するなど、以降の作業の追跡がしやすそうです。
 
+
 ### 議論
 
-なお `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿は main で行なっています。 
+なお `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿はほとんど main ブランチ上で行なっています。 
 
-main への直接 push を許すかどうかはチームの方針によりますが、今回は
+**「main への直接 push を許すべきか？」**
+
+これはチームの方針によりますが今回は
 
 * 自明に良いことはレビューが必要ない
 * またコミットログは dirty であっても構わない (=~ [rebase しない派](https://x.com/tadsan/status/1863567234947571934))
@@ -90,13 +96,26 @@ main への直接 push を許すかどうかはチームの方針によります
 
 例えば `git log --pretty=oneline | grep 1733563997` では main push のコミットを特定することができないので、若干追跡性が落ちます。
 feature branch で更新を行うことは main のコミットログに関心あるチームメイトにとって、メリットがあります。
+
+```
+$ git log --pretty=oneline | grep 1733563997
+acfc0fc70e64c1db119baae15b986d6caf35bc52 Merge pull request #9 from ririumu/6-feature-1733563997-write-doc
+6c6b4bba74c86475eefb9abfcca8beaa49307dc0 Merge pull request #7 from ririumu/6-feature-1733563997-write-doc
+```
+
 個人としてのスピードを犠牲にしてでも、チームとしての生産性を向上させたい場合は、おそらくそうするべきです。
 この変更も feature branch で作業をしています。ただやっぱり、手数が多くなってしまうわけなので、どちらがいいのでしょうね・・・。
 
-（セルフマージが多い場合は main push を allow する、main の品質重視であれば disallow として doc update レベルであっても feature branch で作業してもらう、という決定基準が妥当そうに見えます)
+まとめると以下の3択です。
+
+1. セルフマージが多い場合は main push をしていいものとする
+2. main の品質のため main push は disallow であり doc update や fix typo レベルであっても feature branch で作業するものとする
+3. 上記2つの中間で main push と feature merge の双方を適宜ベストだと思うように運用する
+
+今回は3を選んでいます（というか結果的にそうなった）。
 
 
-### 結論
+### まとめ
 
 イシュー名を `feature $(date +%s) topic description` とすると便利そうです。
 
