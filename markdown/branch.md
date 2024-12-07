@@ -34,15 +34,12 @@ git branch                               # foo になっていることを確認
 # そのブランチに対応する作業をします
 echo foo > foo.txt
 git add foo.txt
-git commit -m foo
+git commit -m foo-wip
 
 # 変更を反映します origin (プッシュ先) と foo (ローカルブランチ) を指定する必要があります
 git branch origin foo
 
-# これでも良いようですが
-git push origin HEAD
-
-# これだと不測のようです
+# これだと不足のようです
 git push
 ```
 
