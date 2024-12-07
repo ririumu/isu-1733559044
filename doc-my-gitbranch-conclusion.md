@@ -1,10 +1,10 @@
-## ブランチとの向き合い
+## ブランチとの向き合った結論
 
-色々頑張ったんですけどね...。
+色々頑張ったんですけどねえ…。
 
-### ブランチとの向き合い => 素直に github を使う
+### ブランチとの向き合った結論 => 素直に github を使おう
 
-つまり issue を作って、それからその issue に紐づく branch を作り、それをチェックアウトして、開発して、プルリクを作る、結局これでよかったです。
+結局、issue を作って、それからその issue に紐づく branch を作り、それをチェックアウトして、開発して、プルリクを作る、これでよかったです。
 
 ```
 git pull                              # おまじない的にやっていますが意味はないかもしれません
@@ -33,9 +33,9 @@ gh pr create                          # プルリクを作ってくれます (�
 
 色々試してみましたが、素直に github のやり方に従うのが良かったです。 
 
-git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/main/markdown/feature-dates-workflow.md) ですが、しかし普通であるが故に、まだかなりマシで、それに、たとえ issue が [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) issue が混沌としていても feature dates workflow で建てられた issue は命名規則に従っているため、まともな issue であるということがハッキリしていて、よかったです。
+git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/main/markdown/feature-dates-workflow.md) ですが、しかし普通であるが故に、まだかなりマシで、それに、たとえ [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) issue が混沌としていても dates workflow で建てられた issue は命名規則に従っているため、比較的まともな issue っぽい空気が出ていました。
 
-以下は feature dates workflow で作ったものですが、ツリーが綺麗でした。
+以下は feature dates workflow で作ったものです。ツリーが綺麗です。
 
 ```
 *   009cd09 - (HEAD -> main, origin/main, origin/HEAD) Merge pull request #25 from ririumu/23-feature-1733593706-remove-unusable-method-from-doc (9 minutes ago) <ririumu>
@@ -45,7 +45,8 @@ git だけでなんとかするのしんどいです（少なくとも自分は�
 *
 ```
 
-普通のフィーチャーブランチも同じです。これでいいと思いました。
+おそらく普通のフィーチャーブランチも同じ綺麗さになることでしょう。
+なので普通を確認するだけでした。
 
 こちらからは以上です。
 
