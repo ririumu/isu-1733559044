@@ -13,8 +13,8 @@
 
 1. イシューを作成  
 まず改修単位に応じたイシューを作成します。  
-`gh issue create --title "feature $(date +%s) Task description"`  
-例: `gh issue create --title "feature $(date +%s) Add search functionality"`
+`gh issue create --title "feature $(date +%s) description"`  
+例: `gh issue create --title "feature $(date +%s) improve search"`
 
 2. イシュー番号を確認  
 次に作成したイシューの番号を取得します。  
@@ -22,7 +22,7 @@
 例:  
 ```
 ID  TITLE
-#5  feature 1733561849 Add search functionality
+#5  feature 1733561849 improve search
 ```
 
 3. ブランチを作成  
@@ -30,14 +30,14 @@ ID  TITLE
 `gh issue develop ${イシュー番号}`  
 例: `gh issue develop 5`  
 生成されるブランチ名:  
-`5-feature-1733561849-add-search-functionality`
+`5-feature-1733561849-improve-search`
 
 4. ブランチを確認  
 `git branch -a`  
 例:  
 ```
 * main
-  remotes/origin/5-feature-1733561849-add-search-functionality
+  remotes/origin/5-feature-1733561849-improve-search
 ```
 
 
@@ -45,9 +45,9 @@ ID  TITLE
 
 このワークフローの嬉しさは以下のとおりです。
 
-- 命名規則: イシュー番号 + タスク名で直感的に分かる構造を維持。
-- タイムスタンプ: ブランチ名の衝突を回避。
-- Git コマンド中心: CLI 上で完結。
+- 命名規則: イシュー番号 + タスク名で直感的に分かる構造の維持。
+- タイムスタンプ: 識別子としての利用性。
+- Git コマンド中心: CLI 上で完結させても良いし、GUI (ブラウザ) メインで操作しても良い。
 
 
 ### 備考
