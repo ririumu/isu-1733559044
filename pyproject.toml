@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "isu-1733559044"
+version = "0.1.0"
+description = ""
+authors = ["ririumu <33805628+ririumu@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
