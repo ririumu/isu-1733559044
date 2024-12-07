@@ -36,7 +36,10 @@ echo foo > foo.txt
 git add foo.txt
 git commit -m foo
 
-# 変更を反映します origin (プッシュ先) と foo (ローカルブランチ) を指定することがベターです
+# 変更を反映します origin (プッシュ先) と foo (ローカルブランチ) を指定する必要があります
 git branch origin foo
+
+# これでも良いようです
+git push origin HEAD
 ```
 
