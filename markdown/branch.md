@@ -33,9 +33,10 @@ gh pr create                          # プルリクを作ってくれます (�
 
 色々試してみましたが、素直に github のやり方に従うのが良かったです。 
 
-git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) ですが、しかし普通であるが故に、まだかなりマシでした。素直に github のやり方に従うのが良いです。 main push は禁止で設定するのが良いです。[feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) は悪くなかったです。たとえ issue が [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) 混沌としていても feature dates workflow で建てられた issue は命名規則に従っているため、まともな issue であるということがハッキリします。
+git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) ですが、しかし普通であるが故に、まだかなりマシで、それに、たとえ issue が [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) 混沌としていても feature dates workflow で建てられた issue は命名規則に従っているため、まともな issue であるということがハッキリしていて、よかったです。
 
-結局、以下ツリーの綺麗さがすべてであると感じました。
+以下は feature dates workflow で作ったものですが、ツリーが綺麗でした。
+これでいいと思いました。
 
 ```
 *   009cd09 - (HEAD -> main, origin/main, origin/HEAD) Merge pull request #25 from ririumu/23-feature-1733593706-remove-unusable-method-from-doc (9 minutes ago) <ririumu>
@@ -45,5 +46,5 @@ git だけでなんとかするのしんどいです（少なくとも自分は�
 *
 ```
 
-こちらからは、以上です。
+こちらからは以上です。
 
