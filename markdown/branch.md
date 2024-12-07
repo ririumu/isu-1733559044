@@ -39,74 +39,35 @@ gh pr create                          # プルリクを作ってくれます (�
 ### パターン2 : issue は使わない pr だけ使う
 
 ローカルリポジトリで任意の名前をブランチ名にするやり方です。こちらの方が本来の Git 的であり GitHub への依存が少ないです。
-元々 git は linus が linux を作るために作ったツールで、当時はメーリングリストでのやり取りが主だったのです。
+元々 git は linus が linux を作るために作ったツールで、当時はメーリングリストでのやり取りが主だったと聞きます。
+
+一人で ISUCON するときは `count` という雑なコミットメッセージしますよね。
+でチーム開発だからといって教条的に pr とか review すると明らかに速度が落ちます。
+
+じゃあこういうのもありだとそう思っていたのですが。
 
 ```
 git checkout -b foo remotes/origin/main  # 作業ブランチを foo とします
 git branch                               # foo になっていることを確認します
 code .                                   # そのブランチに対応する作業をします
-git push origin foo                      # origin (プッシュ先) と foo (ローカルブランチ) を指定する必要があります
 ```
 
-注意しなければならないのは `git push origin foo` は結構大事なコマンドだということです。
-
-```
-$ git push origin foo
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (4/4), 364 bytes | 364.00 KiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/ririumu/isu-1733559044
-   a2baf19..01c0f54  foo -> foo
-```
-
-なぜならばローカルリポジトリの `foo` ブランチの成果は、
-確実にリモートリポジトリの `origin/foo` に届けなくてはならないからです（そうでなくてはPRの意味が崩壊します）。
-しかしながら vscode で下手に push してしまうとどうやら `foo` の成果物が `origin/main` に行ってしまうので事故ることを確認しました（原因を deep dive してませんがとにかく起きました）。
-これ、言い換えると main push を allow していると「`origin/foo` に push すべきものが `origin/main` に push されてしまった」という大悲劇が発生しうる、ということです。
-
-同様にブラウザで操作した成果をローカル PC に持ってくる時はこれも逆もまた然りということで `git pull origin foo` もかなり大事です。
-すなわち、以下のようなコマンドの打ち方の手順があるということです。
-
-```
-git pull origin foo
-code .
-gh pr create
-```
-
-というコマンドの打ち方の流れがあります。
-
-```
-$ gh pr create
-a pull request for branch "foo" into branch "main" already exists:
-https://github.com/ririumu/isu-1733559044/pull/14
-```
-
-「もうあるよそれ」と言われても URL を教えてくれるのでありがたいです。
-しかも `origin/foo` にコミットは蓄積されておりますので。
-
-それから。下記コマンドは、上記議論を踏まえるとかなり「処方箋」となります。
-
-```
-git pull origin foo && git push origin foo
-```
-
-なぜなら一人で ISUCON するときは `count` という雑なコミットメッセージしますよね。
-でチーム開発だからといって教条的に pr とか review すると明らかに速度が落ちます。
-
-こころらへんのバランスの取り所は本当に、難しいですね。
-
+https://github.com/ririumu/isu-1733559044/issues/23 の通り私には荷が重かったようです。
 
 ### 悲劇の未然防止 : main push の禁止
 
-さて、ミスをするのは99.9%人間です。特に、体調が良くないなど、疲れていると人間はミスをします。
+結局、ミスをするのは99.9%人間で、特に、体調が良くないなど、疲れていると人間はミスをします。
 そして `main` は常に一定品質を保たれていることが期待されます。
+だからやっぱり main push は禁止であるべきなのでしょう。
+そう思うようになりました。
 
 <img width="909" alt="image" src="https://github.com/user-attachments/assets/30469d8b-ca92-4d4e-a25f-5c8bfb678c93">
 
-だからやっぱり、悲劇をを防止するに、 main push を禁止するよう github を設定するべきと言えるのでしょう。
-私たちは常に元気溌剌ではないのです。
+### 結論
+
+素直に github のやり方に従うのが良いです。 git だけでなんとかするのしんどいです（少なくとも自分は）。
+これならまだ [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) は
+普通であるが故に、マシでした。
+
+以上
 
