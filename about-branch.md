@@ -1,10 +1,11 @@
-## 機能ブランチ
+## ブランチ
 
-機能ブランチの練習をしました。
-イシュー名を `feature $(date +%s) description` としてこれを feature dates workflow と便宜上名付けて練習しました。
+作業単位に対するブランチの練習をしました。
 
 
 ### 手順
+
+イシュー名を `feature $(date +%s) description` とすることを feature dates workflow とします。
 
 1. イシューを作成  
 作業単位に応じたイシューを作成します。  
