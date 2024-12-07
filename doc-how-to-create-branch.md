@@ -1,9 +1,7 @@
 ## `feature $(date +%s) topic description workflow` について
 
 「ブランチは改修単位」を実現するコツを求めていて GitHub を練習していたところ、
-
-* イシュー名を `feature $(date +%s) topic description` とする
-
+イシュー名を `feature $(date +%s) topic description` とする
 のが良さそうでした。
 これを `feature $(date +%s) topic description workflow` と呼ぶことにします。
 
