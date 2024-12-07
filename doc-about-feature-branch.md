@@ -45,16 +45,6 @@ ID  TITLE
 
 これはブラウザで全ての操作を行うことができるので、作業は CLI メインで作業してもよいし GUI (ブラウザ) メインで作業してもよいです。
 
-### 議論 : main push を許可すべきかどうか
-
-ただ `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿はほとんど main ブランチ上で行なっています。 
-
-1. セルフマージが多い場合なので main push をしていいとする
-2. main の品質のため main push は disallow であり doc update や fix typo レベルであっても feature branch で作業するとする
-3. 上記2つの中間で main push と feature merge の双方を適宜ベストだと思うように運用するとする
-
-今回の練習は3でした（いい加減にしていたら結果的にそうなった）。
-
 
 ### 事例
 
@@ -69,7 +59,7 @@ gh issue develop 6
 作業の成果物は [https://github.com/ririumu/isu-1733559044/pull/7](https://github.com/ririumu/isu-1733559044/pull/7) として main にマージされました。
 作業のログは [https://github.com/ririumu/isu-1733559044/issues/6](https://github.com/ririumu/isu-1733559044/issues/6) から確認できます。
 
-本稿作成にあたり feature dates workflow に従うことで、その作業に一意の名前 `feature 1733563997` がつきました。
+これにより、作業に一意の名前 `feature 1733563997` がつきました。
 unixtime `1733563997` を識別子として定めて `git log --pretty=oneline | grep 1733563997` するなどで追跡してみました。
 
 以上の通り feature dates workflow は幾らかのメリットがありました、ですが、マイナーな workflow はそれだけで良くないです。
