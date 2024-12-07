@@ -1,12 +1,13 @@
-## feature $(date +%s) topic description workflow
+## `feature $(date +%s) topic description workflow` について
 
-「ブランチは改修単位」を実現するための tips として、
+「ブランチは改修単位」を実現するコツを求めていて GitHub を練習していたところ、
 
 * イシュー名を `feature $(date +%s) topic description` とする
 
 のが良さそうでした。
+これを `feature $(date +%s) topic description workflow` と呼ぶことにします。
 
-個人的に使おうと思うので、備忘録としてその手順を記述します。
+個人的に使おうと思うので、備忘録として、使い方を記述します。
 
 ### 手順
 
