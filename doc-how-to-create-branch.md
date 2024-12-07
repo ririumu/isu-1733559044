@@ -1,10 +1,14 @@
-## feature $(date +%s) topic description workflow
+## `feature $(date +%s) topic description workflow` について
 
-「ブランチは改修単位」を実現するワークフローとして、イシュー名を `feature $(date +%s) topic description` にすることがちょうど良さそうです。
+「ブランチは改修単位」を実現するコツを求めていて GitHub を練習していたところ
+イシュー名を `feature $(date +%s) topic description` とする
+のが良さそうでした。
 
-その手順を記述します。
+これを `feature $(date +%s) topic description workflow` と呼ぶことにします。
 
-## 手順概要
+個人的に使おうと思うので、備忘録としてドキュメントを作成します。
+
+### 手順
 
 1. イシューを作成  
 まず改修単位に応じたイシューを作成します。  
@@ -35,7 +39,7 @@ ID  TITLE
   remotes/origin/5-feature-1733561849-add-search-functionality
 ```
 
-## メリット
+### 利点
 
 このワークフローの嬉しさは以下のとおりです。
 
@@ -43,13 +47,38 @@ ID  TITLE
 - タイムスタンプ: ブランチ名の衝突を回避。
 - Git コマンド中心: CLI 上で完結。
 
-## 備考
+### 備考
 
 本ドキュメントの手順では  `gh` コマンドを使用しましたが、これはブラウザで全ての操作を行うことができます。
 
-その際は `echo` コマンドで unixtime を取得することが役立つかもしれません。
+その際は以下のコマンドなどで unixtime を取得します。
 
 ```
 $ echo feature $(date +%s) topic description
 feature 1733564884 topic description
 ```
+
+### 事例
+
+本ドキュメント [https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md](https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md) の初稿は、実際に本手順で作成しました。
+
+作業開始のコマンドは以下でした。
+
+```
+gh issue create --title "feature $(date +%s) write doc"
+gh issue develop 6
+```
+
+作業の成果物は [https://github.com/ririumu/isu-1733559044/pull/7](https://github.com/ririumu/isu-1733559044/pull/7) として main にマージされました。
+作業のログは [https://github.com/ririumu/isu-1733559044/issues/6](https://github.com/ririumu/isu-1733559044/issues/6) から確認できます。
+
+本稿作成にあたり `feature $(date +%s) topic description workflow` に従うことで、その作業に一意の名前 `feature 1733563997` がつきました。
+かつこの時 unixtime `1733563997` がイミュータブルな識別子として定まったので `git log --pretty=oneline | grep 1733563997` するなど、以降の作業の追跡がしやすそうです。
+
+なお `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿は main で行なっています。 
+main への直接 push を許すかどうかはチームの方針によりますが、今回は自明に良いことはレビューが必要ない、
+またコミットログは dirty であっても構わないと、チーム（＝私）が考えたことによって main への直接 push は allow としています。
+
+（スピードと品質のバランスにもよりますが、個人的に、非破壊的な変更は main push で構わないと考えています）
+
+以上です。
