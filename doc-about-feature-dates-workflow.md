@@ -1,12 +1,12 @@
-## feature dates workflow を考えた (結局いらないかも)
+## feature dates workflow 
 
-「ブランチは改修単位」を実現するコツを求めていて GitHub を練習していたところ
-イシュー名を `feature $(date +%s) description` とする
-のが良さそうだと感じる瞬間がありました。
+`feature $(date +%s)` ってどうかなあと思っていたのですが、、、現時点の所感は普通です。
 
-これを `feature $(date +%s) workflow` (feature dates workflow) と呼ぶことにします。
+まず「ブランチは改修単位」を実現するコツを個人的に求めており GitHub を練習していたところ
+イシュー名を `feature $(date +%s) description` とするのが良さそうだと感じる瞬間がありました。
+これを feature dates workflow と呼ぶことにして、備忘録と練習をしてみました。
 
-個人的に使おうと思ったので、備忘録と練習をしてみましたが、まあ一つの特殊なやり方に過ぎないかと思い直しました（メリット自体はあるけど強くプッシュするほどではない）。
+結論としてはそこまで仰々しいものではなかったので読まなくて良いです。
 
 
 ### 手順
@@ -48,23 +48,13 @@ ID  TITLE
 - 命名規則（イシュー番号 + タスク名）が直感的な理解を促進する。
 - タイムスタンプ: UNIXタイムスタンプに識別子としての多面的な利用性がある。
 
-
-### 備考
-
-本ドキュメントの手順では  `gh` コマンドを使用しましたが、これはブラウザで全ての操作を行うことができます。
-その際は以下コマンドで unixtime を取得します。
-
-```
-$ echo feature $(date +%s) topic description
-feature 1733564884 topic description
-```
-
+なお、本稿の手順では  `gh` コマンドを使用しましたが、これはブラウザで全ての操作を行うことができます。
 つまり、作業は CLI メインで作業してもよいし、GUI (ブラウザ) メインで作業してもよいです。
 
 
-### 議論
+### 議論 : main push について
 
-なお `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿はほとんど main ブランチ上で行なっています。 
+しかし `isu-1733559044` のコミットログを眺めれば分かるとおり、改稿はほとんど main ブランチ上で行なっています。 
 
 **「main への直接 push を許すべきか？」**
 
@@ -75,9 +65,9 @@ feature 1733564884 topic description
 
 とチーム（＝私）が考えたことによって、 main push を allow しています。
 
-一方で main push を禁止し feature branch 作業を原則とすることも feature dates workflow にとって一定のメリットがあります。
-例えば `git log --pretty=oneline | grep 1733563997` では main push のコミットを特定することができないので、若干追跡性が落ちますが、
-feature branch 作業を原則とすれば、その追跡性は維持されます。
+一方で feature branch 作業は feature dates workflow にとって一定のメリットがありそうでした。
+例えば `git log --pretty=oneline | grep 1733563997` では main push のコミットを特定することができません。
+しかし feature branch 作業については `grep 1733563997` で見つけることができます。
 
 ```
 $ git log --pretty=oneline | grep 1733563997
@@ -97,7 +87,6 @@ acfc0fc70e64c1db119baae15b986d6caf35bc52 Merge pull request #9 from ririumu/6-fe
 ### 事例
 
 本ドキュメント [https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md](https://github.com/ririumu/isu-1733559044/blob/main/doc-how-to-create-branch.md) の初稿は、実際に本手順で作成しました。
-
 作業開始のコマンドは以下でした。
 
 ```
@@ -109,21 +98,23 @@ gh issue develop 6
 作業のログは [https://github.com/ririumu/isu-1733559044/issues/6](https://github.com/ririumu/isu-1733559044/issues/6) から確認できます。
 
 本稿作成にあたり feature dates workflow に従うことで、その作業に一意の名前 `feature 1733563997` がつきました。
-かつこの時 unixtime `1733563997` がイミュータブルな識別子として定まったので `git log --pretty=oneline | grep 1733563997` するなど、以降の作業の追跡がしやすくなりました。
+unixtime `1733563997` を識別子として定めて `git log --pretty=oneline | grep 1733563997` するなどで追跡してみました。
 
 
 ### まとめ
 
 GitHub イシュー名に `feature $(date +%s)` 含めることを feature dates workflow と呼ぶことにして、それについて、議論と作業をしました。
 とはいえマイナーな workflow はそれだけで良くないですね…。「GitHub を用いたチーム開発ではブランチを改修の単位とするとよい」で事足りる感じがしました。
+（そもそもそんなに unixtime が便利なら github にすでに統合されているはずだという気もしてきた）
 
-コマンドに直すと以下です。
+「普通の機能ブランチ」に寄せたコマンドは以下です。
 
 ```
 gh issue create --title "feature add metrics viewer"
 gh issue develop 42
 ```
 
+普通ですね。
 よって結局 https://github.com/ririumu/isu-1733559044/issues/6 はコマンドの練習でした。
 
 おしまい
