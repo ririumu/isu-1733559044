@@ -109,3 +109,4 @@ git pull origin foo && git push origin foo
 
 だからやっぱり、悲劇をを防止するに、 main push を禁止するよう github を設定するべきと言えるのでしょう。
 私たちは常に元気溌剌ではないのです。
+
