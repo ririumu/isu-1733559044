@@ -2,7 +2,7 @@
 
 色々頑張ったんですけどね...。
 
-### 素直に github を使う
+### ブランチとの向き合い => 素直に github を使う
 
 つまり issue を作って、それからその issue に紐づく branch を作り、それをチェックアウトして、開発して、プルリクを作る、結局これでよかったです。
 
@@ -23,17 +23,17 @@ git push                              # 作業結果をリモートリポジト�
 gh pr create                          # プルリクを作ってくれます (ブラウザ操作でも良いです)
 ```
 
-### 悲劇防止 : main push は禁止する
+### やっておくべき設定 => main push は禁止する
 
-`main` は常に一定品質を保たれていることが期待されており、おそらく main push は禁止するべきです
+`main` は常に一定品質を保たれていることが期待されています。main push は禁止するべきです。人はミスを犯すからです。
 
 <img width="909" alt="image" src="https://github.com/user-attachments/assets/30469d8b-ca92-4d4e-a25f-5c8bfb678c93">
 
 ### 結論
 
-色々試してみましたが、素直に github のやり方に従うのが良かったです。 git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) ですが、しかし普通であるが故に、まだかなりマシでした。素直に github のやり方に従うのが良いです。 main push は禁止で設定するのが良いです。
+色々試してみましたが、素直に github のやり方に従うのが良かったです。 
 
-[feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) は悪くなかったです。たとえ issue が [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) 混沌としていても feature dates workflow で建てられた issue は命名規則に従っているため、まともな issue であるということがハッキリします。
+git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) ですが、しかし普通であるが故に、まだかなりマシでした。素直に github のやり方に従うのが良いです。 main push は禁止で設定するのが良いです。[feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/8b1d503f1c1976e1318a3b09204b1bd48387cf26/doc-about-feature-dates-workflow.md?plain=1) は悪くなかったです。たとえ issue が [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) 混沌としていても feature dates workflow で建てられた issue は命名規則に従っているため、まともな issue であるということがハッキリします。
 
 結局、以下ツリーの綺麗さがすべてであると感じました。
 
@@ -45,5 +45,5 @@ gh pr create                          # プルリクを作ってくれます (�
 *
 ```
 
-以上です。
+こちらからは、以上です。
 
