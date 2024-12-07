@@ -39,7 +39,10 @@ git commit -m foo
 # 変更を反映します origin (プッシュ先) と foo (ローカルブランチ) を指定する必要があります
 git branch origin foo
 
-# これでも良いようです
+# これでも良いようですが
 git push origin HEAD
+
+# これだと不測のようです
+git push
 ```
 
