@@ -33,7 +33,7 @@ gh pr create                          # プルリクを作ってくれます (�
 
 色々試してみましたが、素直に github のやり方に従うのが良かったです。 
 
-git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](https://github.com/ririumu/isu-1733559044/blob/main/markdown/feature-dates-workflow.md) ですが、しかし普通であるが故に、まだかなりマシで、それに、たとえ [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) issue が混沌としていても dates workflow で建てられた issue は命名規則に従っているため、比較的まともな issue っぽい空気が出ていました。
+git だけでなんとかするのしんどいです（少なくとも自分は）。「マイナな WF を考えてしまった…」と後悔していた [feature dates workflow](pre/doc-datesworkflow.md) ですが、しかし普通であるが故に、まだかなりマシで、それに、たとえ [このように](https://github.com/ririumu/isu-1733559044/issues?q=is%3Aissue+is%3Aclosed) issue が混沌としていても dates workflow で建てられた issue は命名規則に従っているため、比較的まともに見えました。
 
 以下は feature dates workflow で作ったものです。ツリーが綺麗です。
 
@@ -46,7 +46,6 @@ git だけでなんとかするのしんどいです（少なくとも自分は�
 ```
 
 おそらく普通のフィーチャーブランチも同じ綺麗さになることでしょう。
-なので普通を確認するだけでした。
 
 こちらからは以上です。
 

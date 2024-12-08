@@ -1,10 +1,22 @@
-Git と向き合うだけで終わってしまいました。
+My Isucon Log
 
-gh issue create --title "feature $(date +%s) cleanup unuse files"
-gh issue develop 27
-git checkout 27-feature-1733596488-cleanup-unuse-files
-git branch
-code .
-gh pr create
+## 準備
 
-結局、これでよかったです。
+Git の練習をした
+
+  gh issue create --title "feature $(date +%s) cleanup unuse files"
+  gh issue develop 27
+  git checkout 27-feature-1733596488-cleanup-unuse-files
+  git branch
+  code .
+  gh pr create
+
+
+## 当日
+
+出られなかった
+
+
+## 振り返り
+
+https://evidence.matsuu.net/ さんのスコア推移をつらつら眺めた
